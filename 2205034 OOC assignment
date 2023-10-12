@@ -1,0 +1,140 @@
+code 1:
+
+import java.util.Scanner;
+
+public class SeasonDeterminer {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a month (1-12): ");
+        int month = scanner.nextInt();
+
+        String season;
+
+        switch (month) {
+            case 12:
+            case 1:
+            case 2:
+                season = "Winter";
+                break;
+            case 3:
+            case 4:
+            case 5:
+                season = "Spring";
+                break;
+            case 6:
+            case 7:
+            case 8:
+                season = "Summer";
+                break;
+            case 9:
+            case 10:
+            case 11:
+                season = "Autumn (Fall)";
+                break;
+            default:
+                season = "Invalid month";
+                break;
+        }
+
+        System.out.println("The season is: " + season);
+
+        scanner.close();
+    }
+}
+
+
+
+code 2:
+
+java code
+
+import java.util.Scanner;
+
+class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+class Beneficiary extends Person {
+    private double inheritanceAmount;
+
+    public Beneficiary(String name, int age, double inheritanceAmount) {
+        super(name, age);
+        this.inheritanceAmount = inheritanceAmount;
+    }
+
+    public double getInheritanceAmount() {
+        return inheritanceAmount;
+    }
+
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Inheritance Amount: $" + inheritanceAmount);
+    }
+}
+
+class Executor extends Person {
+    public Executor(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Role: Executor");
+    }
+}
+
+public class InheritanceDemo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input beneficiary information
+        System.out.print("Enter beneficiary name: ");
+        String beneficiaryName = scanner.nextLine();
+        System.out.print("Enter beneficiary age: ");
+        int beneficiaryAge = scanner.nextInt();
+        System.out.print("Enter inheritance amount: $");
+        double inheritanceAmount = scanner.nextDouble();
+
+        // Input executor information
+        scanner.nextLine(); // Consume the newline character
+        System.out.print("Enter executor name: ");
+        String executorName = scanner.nextLine();
+        System.out.print("Enter executor age: ");
+        int executorAge = scanner.nextInt();
+
+        // Create objects
+        Beneficiary beneficiary = new Beneficiary(beneficiaryName, beneficiaryAge, inheritanceAmount);
+        Executor executor = new Executor(executorName, executorAge);
+
+        // Display details
+        System.out.println("\nBeneficiary Details:");
+        beneficiary.displayDetails();
+
+        System.out.println("\nExecutor Details:");
+        executor.displayDetails();
+
+        scanner.close();
+    }
+}
